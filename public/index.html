@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <title>Lean Digital — Grip op Softwareontwikkeling</title>
+    <meta
+      name="description"
+      content=">Praktische, evidence-based handvatten voor meer grip op proces, product en klantwaarde."
+    />
+    <style>
+      :root {
+        /* Base font size in pixels. This would result in 22px on desktop */
+        --base-font-size: 26;
+
+        /* How large the line height is as a multiple of font size */
+        --base-line-height: 1.5;
+
+        --leading: calc(var(--base-line-height) * 1rem);
+
+        /* Rate of growth for headings
+            I actually like this to be slightly smaller then the leading. Makes for tight headings.
+        */
+        --scale: 1.2;
+
+        @media screen and (max-width: 42rem) {
+          --base-font-size: 18;
+        }
+      }
+      html {
+        /* Change default typefaces here */
+        font-family: serif;
+        font-size: calc(var(--base-font-size) - 0px);
+        font-size: calc(var(--base-font-size) / 16 * 100%);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #444;
+      }
+      body {
+        margin: 0;
+        padding-bottom: 4rem;
+        background: #000 url(images/bitmaps/eniac-darkened80-small.png) repeat
+          center -200px;
+        -ms-interpolation-mode: nearest-neighbor;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: pixelated;
+        background-attachment: fixed;
+      }
+
+      /* Headings */
+      h1,
+      h2,
+      .pitch {
+        font-family: sans-serif;
+        margin-top: var(--leading);
+        margin-bottom: 0;
+        line-height: var(--leading);
+        max-width: 85dvw;
+      }
+      h1 {
+        font-size: calc(3 * var(--scale) * 1rem);
+        line-height: calc(3 * var(--leading));
+        margin-top: calc(2 * var(--leading));
+
+        @media screen and (max-width: 42rem) {
+          font-size: calc(1.5 * var(--scale) * 1rem);
+          line-height: calc(1.5 * var(--leading));
+          margin-top: var(--leading);
+        }
+      }
+      h2,
+      .pitch {
+        font-size: calc(2 * var(--scale) * 1rem);
+        line-height: calc(2 * var(--leading));
+        margin-top: calc(2 * var(--leading));
+
+        @media screen and (max-width: 42rem) {
+          font-size: calc(1.25 * var(--scale) * 1rem);
+          line-height: calc(1.25 * var(--leading));
+          margin-top: var(--leading);
+        }
+      }
+
+      p {
+        max-width: 64ch;
+        /* text-align: justify; */
+        margin-top: var(--leading);
+        margin-bottom: 0;
+        line-height: var(--leading);
+      }
+
+      header,
+      main,
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5%;
+      }
+
+      main {
+        padding-bottom: 2rem;
+        background-color: white;
+      }
+
+      footer {
+        font-family: sans-serif;
+        padding: 2rem 0;
+        text-align: center;
+        color: hsl(0deg 0% 95%);
+        line-height: var(--leading);
+        background-color: hsl(0deg 0% 15%);
+
+        a {
+          color: hsl(240 20% 75%);
+        }
+      }
+
+      @media only screen and (min-width: 35rem) {
+        .site-header {
+          padding: 2rem;
+        }
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .logo-lean-digital {
+        width: 10rem;
+      }
+
+      .pitch {
+        text-align: center;
+      }
+
+      .portrait {
+        margin: 1rem;
+      }
+      .portrait-img img {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .fn,
+      .org,
+      .adr {
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <img
+        src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTU2IDEwMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiPjxnIGZpbGwtcnVsZT0ibm9uemVybyI+PHBhdGggZD0iTTE0Ny43IDM5LjVjNS40LTYuOSA3LjEtMTYuOSAyLTI2LjhDMTQ2LjEgNS41IDEzOC41IDEgMTMwLjQgMWgtMjIuMmwzOS41IDM4LjV6IiBmaWxsPSIjN2FjNWVkIi8+PHBhdGggZD0iTTEyOCA0OC43aC45YzMuOSAwIDcuNi0xIDEwLjktMi43bC0zNS4yLTM0LjN2MTQuMkwxMjggNDguN3oiIGZpbGw9IiMzNDhhY2EiLz48cGF0aCBkPSJNMTA0LjYgMjUuOXYxOC45YzAgMi4yIDEuOCAzLjkgMy45IDMuOUgxMjhsLTIzLjQtMjIuOHptMjQuMyAyMi44aDIzLjJjMS44IDAgMi43LTIuMiAxLjQtMy41bC01LjgtNS43Yy00LjQgNS42LTExLjEgOS4yLTE4LjggOS4yeiIgZmlsbD0iIzAxNTc5MyIvPjxwYXRoIGQ9Ik0xMzkuOCA0NmMzLjEtMS42IDUuOC0zLjggNy45LTYuNUwxMDguMiAxaC0uNmMtMS42IDAtMyAxLjMtMyAzdjcuN0wxMzkuOCA0NnoiIGZpbGw9IiMzZGE5ZTAiLz48cGF0aCBkPSJNMSA0OC41VjE4LjdoMi4xdjI3LjhoMTcuOHYxLjlIMXYuMXptMzIuMS40Yy0xLjUgMC0zLS4zLTQuMy0uOS0xLjMtLjYtMi41LTEuNC0zLjQtMi41LS45LTEuMS0xLjctMi4zLTIuMy0zLjYtLjUtMS40LS44LTIuOC0uOC00LjQgMC0xLjUuMy0zIC44LTQuMy41LTEuNCAxLjMtMi41IDIuMi0zLjYgMS0xIDIuMS0xLjggMy40LTIuNCAxLjMtLjYgMi43LS45IDQuMi0uOXMzIC4zIDQuMy45YzEuMy42IDIuNCAxLjQgMy40IDIuNHMxLjcgMi4yIDIuMiAzLjZjLjUgMS40LjggMi44LjggNC4zdi45SDI0LjVjLjEgMS4zLjQgMi40LjkgMy41czEuMSAyIDEuOSAyLjhjLjguOCAxLjcgMS40IDIuNyAxLjggMSAuNCAyLjEuNyAzLjIuNy44IDAgMS41LS4xIDIuMi0uMy43LS4yIDEuNC0uNSAyLS45LjYtLjQgMS4yLS44IDEuNy0xLjNzLjktMS4xIDEuMi0xLjdsMS44LjVjLS4zLjgtLjggMS41LTEuNCAyLjItLjYuNy0xLjMgMS4yLTIuMSAxLjdzLTEuNy44LTIuNiAxLjFjLS45LjMtMS45LjQtMi45LjR6bTguNi0xMi4xYy0uMS0xLjMtLjQtMi41LS45LTMuNS0uNS0xLjEtMS4xLTItMS45LTIuNy0uOC0uOC0xLjctMS40LTIuNy0xLjgtMS0uNC0yLjEtLjYtMy4yLS42cy0yLjIuMi0zLjIuNmMtMSAuNC0xLjkgMS0yLjcgMS44LS44LjgtMS40IDEuNy0xLjggMi44LS41IDEuMS0uNyAyLjItLjggMy41aDE3LjJ2LS4xem0xMiAxMi4xYy0xIDAtMS45LS4yLTIuOC0uNS0uOS0uMy0xLjYtLjgtMi4zLTEuNC0uNy0uNi0xLjItMS4zLTEuNS0yLjEtLjQtLjgtLjUtMS43LS41LTIuNyAwLTEgLjItMS44LjctMi42LjUtLjggMS4xLTEuNSAxLjktMiAuOC0uNSAxLjgtMSAyLjktMS4zIDEuMS0uMyAyLjMtLjUgMy43LS41IDEuMiAwIDIuNC4xIDMuNS4zIDEuMi4yIDIuMy41IDMuMi45di0yLjFjMC0yLjEtLjYtMy43LTEuOC00LjktMS4yLTEuMi0yLjgtMS44LTQuOC0xLjgtMS4xIDAtMi4yLjItMy40LjctMS4yLjQtMi40IDEuMS0zLjYgMS45bC0uOS0xLjZjMi44LTEuOSA1LjUtMi45IDgtMi45IDIuNiAwIDQuNy44IDYuMiAyLjMgMS41IDEuNSAyLjMgMy42IDIuMyA2LjN2MTAuN2MwIC43LjMgMSAuOSAxdjEuOWMtLjEgMC0uMyAwLS40LjFoLS40Yy0uNiAwLTEtLjItMS4zLS42LS4zLS40LS41LS44LS42LTEuNHYtMS44Yy0xIDEuMy0yLjMgMi4zLTMuOSAzLTEuNi44LTMuMyAxLjEtNS4xIDEuMXptLjQtMS42YzEuNiAwIDMuMS0uMyA0LjUtLjlDNjAgNDUuOCA2MSA0NSA2MS43IDQ0Yy40LS42LjctMS4xLjctMS43di0zLjljLTEtLjQtMi4xLS43LTMuMS0uOS0xLjEtLjItMi4yLS4zLTMuNC0uMy0xLjEgMC0yLjEuMS0zIC40LS45LjItMS43LjYtMi4zIDEtLjYuNC0xLjEuOS0xLjUgMS41LS40LjYtLjUgMS4zLS41IDJzLjEgMS40LjQgMi4xYy4zLjYuNyAxLjIgMS4yIDEuN3MxLjEuOCAxLjggMS4xYy42LjEgMS4zLjMgMi4xLjN6bTM0LjYgMS4yaC0yLjFWMzYuM2MwLTIuOC0uNC00LjktMS4yLTYuMi0uOC0xLjMtMi4xLTEuOS0zLjgtMS45LS45IDAtMS44LjItMi43LjUtLjkuMy0xLjguOC0yLjUgMS40LS44LjYtMS41IDEuMy0yLjEgMi4yLS42LjgtMSAxLjctMS4zIDIuN3YxMy41aC0yLjFWMjYuN2gydjUuMmMuNC0uOCAxLTEuNiAxLjctMi4zLjctLjcgMS40LTEuMyAyLjItMS44LjgtLjUgMS43LS45IDIuNi0xLjEuOS0uMiAxLjktLjQgMi45LS40IDIuNCAwIDQuMS44IDUgMi41IDEgMS43IDEuNSA0IDEuNSA3LjJ2MTIuNWgtLjF6TS41IDkyLjFWNjIuM0gxMWMyLjQgMCA0LjUuNCA2LjMgMS4yIDEuOC44IDMuMyAxLjggNC41IDMuMiAxLjIgMS4zIDIuMSAyLjkgMi43IDQuNy42IDEuOC45IDMuNy45IDUuOCAwIDIuMy0uMyA0LjMtMSA2LjEtLjcgMS44LTEuNyAzLjQtMi45IDQuNy0xLjMgMS4zLTIuOCAyLjMtNC42IDMtMS44LjctMy44IDEuMS02IDEuMUguNXptMjAuMy0xNWMwLTEuNi0uMi0zLS43LTQuMy0uNC0xLjMtMS4xLTIuNC0xLjktMy40LS44LTEtMS45LTEuNy0zLjEtMi4yLTEuMi0uNS0yLjYtLjgtNC4xLS44SDUuMnYyMS41SDExYzEuNiAwIDMtLjMgNC4yLS44IDEuMi0uNSAyLjItMS4zIDMuMS0yLjMuOC0xIDEuNC0yLjEgMS45LTMuNC4zLTEuMy42LTIuNy42LTQuM3ptOS4xLTEwLjZ2LTUuMWg0LjZ2NS4xaC00LjZ6bTAgMjUuNnYtMjJoNC42VjkyaC00LjZ2LjF6bTE4LjguMmMtMS41IDAtMi44LS4zLTQuMS0uOS0xLjItLjYtMi4zLTEuNC0zLjItMi41LS45LTEuMS0xLjYtMi4yLTIuMS0zLjZzLS43LTIuOC0uNy00LjJjMC0xLjYuMy0zIC44LTQuNC41LTEuNCAxLjItMi42IDIuMS0zLjYuOS0xIDItMS44IDMuMi0yLjQgMS4yLS42IDIuNi0uOSA0LjEtLjkgMS44IDAgMy4zLjQgNC42IDEuMyAxLjMuOSAyLjQgMS45IDMuMyAzLjN2LTQuMmg0LjF2MjEuM2MwIDEuNi0uMyAzLS45IDQuMi0uNiAxLjItMS40IDIuMy0yLjUgMy4xLTEgLjktMi4zIDEuNS0zLjcgMi0xLjQuNC0zIC43LTQuNi43LTIuNCAwLTQuNS0uNC02LjEtMS4yLTEuNi0uOC0zLTItNC0zLjVsMi42LTIuNGMuOCAxLjIgMS45IDIuMSAzLjIgMi43IDEuMy42IDIuNy45IDQuMy45IDEgMCAxLjktLjEgMi43LS40LjktLjMgMS42LS42IDIuMi0xLjIuNi0uNSAxLjItMS4yIDEuNS0yIC40LS44LjYtMS44LjYtMi45di0zLjRjLS44IDEuMy0xLjkgMi40LTMuMiAzLjEtMS4yLjctMi43IDEuMS00LjIgMS4xem0xLjUtMy44Yy43IDAgMS40LS4xIDItLjQuNi0uMiAxLjItLjYgMS44LTEgLjUtLjQgMS0uOSAxLjQtMS40LjQtLjUuNy0xLjEuOC0xLjd2LTUuN2MtLjMtLjctLjYtMS4zLTEuMS0xLjktLjQtLjYtMS0xLjEtMS41LTEuNS0uNi0uNC0xLjItLjctMS44LTEtLjYtLjItMS4zLS40LTEuOS0uNC0xIDAtMS45LjItMi43LjctLjguNS0xLjUgMS0yIDEuNy0uNi43LTEgMS41LTEuMyAyLjQtLjMuOS0uNSAxLjgtLjUgMi44IDAgMSAuMiAyIC41IDIuOC4zLjkuOCAxLjcgMS40IDIuMy42LjcgMS4zIDEuMiAyLjIgMS42LjkuNSAxLjguNyAyLjcuN3ptMTYuMi0yMnYtNS4xSDcxdjUuMWgtNC42em0wIDI1LjZ2LTIySDcxVjkyaC00LjZ2LjF6bTIyLjQtMS4yYy0uNi4zLTEuNC42LTIuNC45LTEgLjMtMi4xLjUtMy4zLjUtLjcgMC0xLjQtLjEtMi4xLS4zLS43LS4yLTEuMi0uNS0xLjctLjlzLS45LS45LTEuMi0xLjVjLS4zLS42LS40LTEuNC0uNC0yLjNWNzMuN2gtMi45di0zLjZoMi45di03LjJoNC42djcuMmg0Ljh2My42aC00Ljh2MTIuMmMuMS44LjMgMS4zLjcgMS43LjQuNCAxIC41IDEuNi41LjYgMCAxLjMtLjEgMS44LS4zLjYtLjIgMS0uNCAxLjMtLjVsMS4xIDMuNnptOSAxLjZjLTEuMSAwLTItLjItMy0uNS0uOS0uMy0xLjctLjgtMi4zLTEuNC0uNy0uNi0xLjItMS4zLTEuNi0yLjItLjQtLjgtLjYtMS43LS42LTIuNyAwLTEgLjItMiAuNy0yLjguNC0uOCAxLjEtMS42IDEuOS0yLjIuOC0uNiAxLjgtMS4xIDIuOS0xLjQgMS4xLS4zIDIuNC0uNSAzLjgtLjUgMSAwIDIuMS4xIDMuMS4zIDEgLjIgMS45LjQgMi43Ljd2LTEuNWMwLTEuNi0uNS0yLjktMS40LTMuOC0uOS0uOS0yLjMtMS40LTQtMS40LTEuMiAwLTIuMy4yLTMuNS43LTEuMS40LTIuMyAxLjEtMy41IDEuOWwtMS40LTIuOWMyLjgtMS45IDUuOC0yLjkgOC44LTIuOSAzIDAgNS40LjggNyAyLjMgMS43IDEuNSAyLjUgMy43IDIuNSA2LjZ2Ny45YzAgMSAuNCAxLjUgMS4yIDEuNXYzLjljLS40LjEtLjguMS0xLjIuMmgtLjljLS45IDAtMS42LS4yLTIuMS0uNy0uNS0uNS0uOC0xLS45LTEuN2wtLjEtMS40Yy0xIDEuMy0yLjIgMi4zLTMuNiAzLTEuMy42LTIuOSAxLTQuNSAxem0xLjMtMy40YzEuMSAwIDIuMi0uMiAzLjItLjYgMS0uNCAxLjgtMSAyLjMtMS43LjYtLjUuOS0xIC45LTEuNnYtMi45Yy0uOC0uMy0xLjYtLjUtMi41LS43LS45LS4yLTEuNy0uMy0yLjYtLjMtMS43IDAtMyAuNC00IDEuMS0xIC43LTEuNiAxLjctMS42IDIuOCAwIDEuMS40IDIgMS4yIDIuNy44LjggMS44IDEuMiAzLjEgMS4yem0xNi42LTI3LjdoNC42djI0LjNjMCAuOC4yIDEuNC42IDEuOS40LjUgMSAuNyAxLjguNy4zIDAgLjctLjEgMS4xLS4yLjQtLjEuOC0uMiAxLjItLjRsLjcgMy42Yy0uNy4zLTEuNS42LTIuNC43LS45LjItMS43LjMtMi41LjMtMS42IDAtMi44LS40LTMuNy0xLjMtLjktLjktMS4zLTIuMS0xLjMtMy43VjYxLjRoLS4xeiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4="
+        alt="Lean Digital"
+        class="logo-lean-digital"
+      />
+    </header>
+    <main>
+      <p class="pitch">Grip op softwareontwikkeling</p>
+      <p>
+        De grootste uitdaging bij softwareontwikkeling is controle over
+        doorlooptijd en kwaliteit. Naarmate de omvang of complexiteit groeit,
+        zie je vaak onvoorzien werk, gemiste deadlines, frustraties en
+        uiteindelijk weinig klantwaarde.
+      </p>
+      <p>
+        Dit heeft verschillende oorzaken, zoals rigide denkbeelden, starre
+        werkwijzen, moeizame samenwerking, een slecht onderscheid tussen
+        aannames en bevestigingen.
+      </p>
+      <p>
+        Als ondernemende productontwikkelaar heb ik ervaring binnen alle
+        disciplines die komen kijken bij het leveren van klantwaarde: als
+        interaction designer, programmeur, leverancier, klant en projectmanager
+        voor verschillende soorten organisaties — startups, mkb en overheid.
+      </p>
+      <p>
+        Met brede én inhoudelijke kennis kan ik zowel op hoofdlijnen als in
+        detail schakelen om onderwerpen strategisch in context te plaatsen.
+      </p>
+      <p>
+        Meer grip begint bij transparantie en inzicht. Hiermee ondersteun je het
+        gesprek tussen disciplines en verbeter je snelle terugkoppeling. Met
+        praktische, evidence-based handvatten creëer je begrip, vertrouwen,
+        autonomie en uiteindelijk meer grip op proces en product.
+      </p>
+    </main>
+    <footer class="site-footer">
+      <div class="portrait">
+        <picture class="portrait-img">
+          <img
+            src="images/ben-2024.webp"
+            width="96"
+            height="96"
+            alt="Ben van de Sande"
+            loading="lazy"
+        /></picture>
+      </div>
+      <div class="vcard">
+        <span class="fn">Ben van de Sande</span> —
+        <span class="org">Lean Digital</span>
+        <div class="adr">
+          <span class="street-address">Torenallee 62-22</span>,
+          <span class="postal-code">5617 BD</span><br /><span class="locality"
+            >Eindhoven</span
+          >,
+          <span class="country-name">Nederland</span>
+        </div>
+        Email naar
+        <a class="email" href="mailto:info@getlean.digital"
+          >info@getlean.digital</a
+        ><br />
+        of bel <span class="tel">+31 (0)6 411 393 26</span>.
+      </div>
+    </footer>
+  </body>
+</html>
